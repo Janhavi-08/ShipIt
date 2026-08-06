@@ -11,4 +11,6 @@ public interface IDeploymentConfigurationRepository
     Task AddAsync(DeploymentConfiguration configuration);
 
     Task UpdateAsync(DeploymentConfiguration configuration);
+Task<DeploymentConfiguration?> GetWithApplicationAsync(
+    Guid deploymentConfigurationId);
 }

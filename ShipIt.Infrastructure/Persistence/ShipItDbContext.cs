@@ -18,6 +18,8 @@ public class ShipItDbContext : DbContext
     public DbSet<SourceRepository> SourceRepositories => Set<SourceRepository>();
     public DbSet<DeploymentConfiguration> DeploymentConfigurations => Set<DeploymentConfiguration>();
     public DbSet<ApplicationUser> ApplicationUsers => Set<ApplicationUser>();
+    public DbSet<EnvironmentVariable> EnvironmentVariables => Set<EnvironmentVariable>();
+    public DbSet<Secret> Secrets => Set<Secret>();
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);

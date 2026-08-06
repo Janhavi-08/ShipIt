@@ -38,4 +38,12 @@ public class DeploymentConfigurationRepository
 
         return Task.CompletedTask;
     }
+public async Task<DeploymentConfiguration?> GetWithApplicationAsync(
+    Guid deploymentConfigurationId)
+{
+    return await _context.DeploymentConfigurations
+        .Include(x => x.Application)
+        .FirstOrDefaultAsync(x =>
+            x.DeploymentConfigurationId == deploymentConfigurationId);
+}
 }

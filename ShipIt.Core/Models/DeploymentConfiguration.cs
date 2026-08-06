@@ -44,4 +44,6 @@ public class DeploymentConfiguration
 
     // Navigation
     public Application Application { get; set; } = null!;
+    public ICollection<EnvironmentVariable> EnvironmentVariables { get; set; } = new List<EnvironmentVariable>();
+    public ICollection<Secret> Secrets { get; set; } = new List<Secret>();
 }

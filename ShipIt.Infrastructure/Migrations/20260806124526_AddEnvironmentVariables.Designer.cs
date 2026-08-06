@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ShipIt.Infrastructure.Persistence;
@@ -11,9 +12,11 @@ using ShipIt.Infrastructure.Persistence;
 namespace ShipIt.Infrastructure.Migrations
 {
     [DbContext(typeof(ShipItDbContext))]
-    partial class ShipItDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260806124526_AddEnvironmentVariables")]
+    partial class AddEnvironmentVariables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -222,43 +225,6 @@ namespace ShipIt.Infrastructure.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
-            modelBuilder.Entity("ShipIt.Core.Models.Secret", b =>
-                {
-                    b.Property<Guid>("SecretId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("DeploymentConfigurationId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("EncryptedValue")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("IsEnabled")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(true);
-
-                    b.Property<string>("Key")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("SecretId");
-
-                    b.HasIndex("DeploymentConfigurationId", "Key")
-                        .IsUnique();
-
-                    b.ToTable("Secrets", (string)null);
-                });
-
             modelBuilder.Entity("ShipIt.Core.Models.SourceRepository", b =>
                 {
                     b.Property<Guid>("RepositoryId")
@@ -408,17 +374,6 @@ namespace ShipIt.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShipIt.Core.Models.Secret", b =>
-                {
-                    b.HasOne("ShipIt.Core.Models.DeploymentConfiguration", "DeploymentConfiguration")
-                        .WithMany("Secrets")
-                        .HasForeignKey("DeploymentConfigurationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("DeploymentConfiguration");
-                });
-
             modelBuilder.Entity("ShipIt.Core.Models.SourceRepository", b =>
                 {
                     b.HasOne("ShipIt.Core.Models.Application", "Application")
@@ -443,8 +398,6 @@ namespace ShipIt.Infrastructure.Migrations
             modelBuilder.Entity("ShipIt.Core.Models.DeploymentConfiguration", b =>
                 {
                     b.Navigation("EnvironmentVariables");
-
-                    b.Navigation("Secrets");
                 });
 
             modelBuilder.Entity("ShipIt.Core.Models.User", b =>

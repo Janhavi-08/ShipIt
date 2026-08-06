@@ -48,6 +48,16 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IDeploymentOptionsService, DeploymentOptionsService>();
         services.AddScoped<IDeploymentConfigurationRepository, DeploymentConfigurationRepository>();
         services.AddScoped<IDeploymentConfigurationService, DeploymentConfigurationService>();
+       
+        services.AddScoped<IEnvironmentVariableService, EnvironmentVariableService>();
+
+        services.AddScoped<IEnvironmentVariableRepository, EnvironmentVariableRepository>();
+        services.AddDataProtection();
+
+        services.AddScoped<IEncryptionService, EncryptionService>();
+        services.AddScoped<ISecretService, SecretService>();
+
+        services.AddScoped<ISecretRepository, SecretRepository>();
         return services;
     }
 }

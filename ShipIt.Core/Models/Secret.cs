@@ -1,19 +1,20 @@
 namespace ShipIt.Core.Models;
 
-public class EnvironmentVariable
+public class Secret
 {
-    public Guid EnvironmentVariableId { get; set; }
+    public Guid SecretId { get; set; }
 
     public Guid DeploymentConfigurationId { get; set; }
 
     public string Key { get; set; } = string.Empty;
 
-    public string? Value { get; set; }
+    public string EncryptedValue { get; set; } = string.Empty;
+
     public bool IsEnabled { get; set; } = true;
+
     public DateTime CreatedAt { get; set; }
 
     public DateTime UpdatedAt { get; set; }
 
-    // Navigation
     public DeploymentConfiguration DeploymentConfiguration { get; set; } = null!;
 }
