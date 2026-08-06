@@ -12,7 +12,6 @@ public class ApplicationService : IApplicationService
     private readonly IApplicationUserRepository _applicationUserRepository;
     private readonly ShipItDbContext _context;
 
-
     public ApplicationService(
         IApplicationRepository applicationRepository,
         ISourceRepositoryRepository sourceRepositoryRepository,

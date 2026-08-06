@@ -25,7 +25,7 @@ public class Application
 
     public ICollection<ApplicationUser> Users { get; set; } = new List<ApplicationUser>();
 
-    // public ICollection<DeploymentProfile> DeploymentProfiles { get; set; } = new List<DeploymentProfile>();
+    public DeploymentConfiguration? DeploymentConfiguration { get; set; }
 
     // public ICollection<ApplicationVersion> Versions { get; set; } = new List<ApplicationVersion>();
 }

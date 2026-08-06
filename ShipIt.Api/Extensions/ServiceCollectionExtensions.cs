@@ -6,6 +6,7 @@ using ShipIt.Core.Interfaces.Repositories;
 using ShipIt.Infrastructure.Repositories;
 using ShipIt.Core.Services.Authentication;
 using ShipIt.Core.Services;
+using ShipIt.Infrastructure.Services;
 namespace ShipIt.Api.Extensions;
 
 public static class ServiceCollectionExtensions
@@ -44,7 +45,9 @@ public static class ServiceCollectionExtensions
         services.AddScoped<ISourceRepositoryRepository, SourceRepositoryRepository>();
 
         services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
-
+        services.AddScoped<IDeploymentOptionsService, DeploymentOptionsService>();
+        services.AddScoped<IDeploymentConfigurationRepository, DeploymentConfigurationRepository>();
+        services.AddScoped<IDeploymentConfigurationService, DeploymentConfigurationService>();
         return services;
     }
 }

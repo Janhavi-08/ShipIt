@@ -16,7 +16,7 @@ public class ShipItDbContext : DbContext
     public DbSet<Application> Applications => Set<Application>();
 
     public DbSet<SourceRepository> SourceRepositories => Set<SourceRepository>();
-
+    public DbSet<DeploymentConfiguration> DeploymentConfigurations => Set<DeploymentConfiguration>();
     public DbSet<ApplicationUser> ApplicationUsers => Set<ApplicationUser>();
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
