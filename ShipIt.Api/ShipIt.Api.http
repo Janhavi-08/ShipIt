@@ -1,0 +1,6 @@
+@ShipIt.Api_HostAddress = http://localhost:5079
+
+GET {{ShipIt.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,45 @@
+# Build folders
+
+bin/
+obj/
+dist/
+ 
+# Angular
+ 
+node_modules/
+.angular/
+coverage/
+
+# Visual Studio 
+
+.vs/
+
+# VS Code
+ 
+.vscode/
+
+# Rider
+
+.idea/
+
+# Logs
+
+*.log
+
+# OS files
+ 
+Thumbs.db
+.DS_Store
+
+# Environment files
+ 
+.env
+.env.*
+
+# User Secrets
+ 
+secrets.json
+
+# Publish folders
+ 
+publish/

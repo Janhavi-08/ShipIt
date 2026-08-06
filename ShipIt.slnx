@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ShipIt.Api/ShipIt.Api.csproj" />
+  <Project Path="ShipIt.Core/ShipIt.Core.csproj" />
+  <Project Path="ShipIt.Infrastructure/ShipIt.Infrastructure.csproj" />
+</Solution>
