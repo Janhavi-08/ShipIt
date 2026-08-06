@@ -5,6 +5,7 @@ using ShipIt.Infrastructure.Authentication;
 using ShipIt.Core.Interfaces.Repositories;
 using ShipIt.Infrastructure.Repositories;
 using ShipIt.Core.Services.Authentication;
+using ShipIt.Core.Services;
 namespace ShipIt.Api.Extensions;
 
 public static class ServiceCollectionExtensions
@@ -25,9 +26,9 @@ public static class ServiceCollectionExtensions
             configuration.GetSection(JwtSettings.SectionName));
 
         services.AddScoped<IJwtService, JwtService>();
-       
+
         services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
-        
+
         services.AddScoped<IUserRepository, UserRepository>();
 
         services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
@@ -37,8 +38,13 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IJwtService, JwtService>();
 
         services.AddScoped<IAuthenticationService, AuthenticationService>();
-            
-           
+        services.AddScoped<IApplicationService, ApplicationService>();
+        services.AddScoped<IApplicationRepository, ApplicationRepository>();
+
+        services.AddScoped<ISourceRepositoryRepository, SourceRepositoryRepository>();
+
+        services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
+
         return services;
     }
 }

@@ -23,5 +23,5 @@ public class User
     // Navigation Properties
     public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
 
-    // public ICollection<ApplicationUser> Applications { get; set; } = new List<ApplicationUser>();
+    public ICollection<ApplicationUser> Applications { get; set; } = new List<ApplicationUser>();
 }

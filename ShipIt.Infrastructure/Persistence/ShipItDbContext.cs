@@ -13,7 +13,11 @@ public class ShipItDbContext : DbContext
     public DbSet<User> Users => Set<User>();
 
     public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
+    public DbSet<Application> Applications => Set<Application>();
 
+    public DbSet<SourceRepository> SourceRepositories => Set<SourceRepository>();
+
+    public DbSet<ApplicationUser> ApplicationUsers => Set<ApplicationUser>();
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
