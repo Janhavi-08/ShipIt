@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-ShipIt.DeploymentWorker-de3e3214-e728-41c2-8f5f-55ce574bedd9</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.ApplicationAutoScaling" Version="4.0.100.10" />
+    <PackageReference Include="AWSSDK.ECR" Version="4.0.101.1" />
+    <PackageReference Include="AWSSDK.ECS" Version="4.0.102.3" />
+    <PackageReference Include="AWSSDK.ElasticLoadBalancingV2" Version="4.0.101.6" />
+    <PackageReference Include="AWSSDK.Route53" Version="4.0.100.11" />
+    <PackageReference Include="AWSSDK.SecretsManager" Version="4.0.100.9" />
+    <PackageReference Include="AWSSDK.SQS" Version="4.0.100.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShipIt.Core\ShipIt.Core.csproj" />
+    <ProjectReference Include="..\ShipIt.Infrastructure\ShipIt.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>
